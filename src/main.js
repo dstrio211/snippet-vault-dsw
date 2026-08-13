@@ -180,6 +180,17 @@ function closeEditor() {
   editingId = null;
 }
 
+async function showSavedThenClose() {
+  const saveBtn = document.querySelector("#save");
+  saveBtn.classList.remove("saved");
+  void saveBtn.offsetWidth;
+  saveBtn.classList.add("saved");
+  saveBtn.textContent = "Saved!";
+  await new Promise(resolve => setTimeout(resolve, 700));
+  saveBtn.classList.remove("saved");
+  saveBtn.textContent = "Save";
+  closeEditor();
+}
 async function saveSnippet() {
   const title = document.querySelector("#title").value.trim();
   const content = document.querySelector("#content").value.trim();
@@ -198,7 +209,8 @@ async function saveSnippet() {
     if (error) { toast(error.message); }
     else {
       snippets = snippets.map(s => s.id === editingId ? data : s);
-      closeEditor(); renderList(); toast("Saved ✓");
+      await showSavedThenClose();
+      renderList();
     }
   } else {
     const { data, error } = await supabase
@@ -209,7 +221,8 @@ async function saveSnippet() {
     if (error) toast(error.message);
     else {
       snippets.unshift(data);
-      closeEditor(); renderList(); toast("Added ✓");
+      await showSavedThenClose();
+      renderList();
     }
   }
   document.querySelector("#save").disabled = false;
