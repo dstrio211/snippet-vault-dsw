@@ -46,3 +46,6 @@ button:active{transform:scale(.95)}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
 .search,.authbox input,.sheet input,.sheet textarea{background:#151518;color:#f5f5f7}.copy{transition:background-color .22s ease,color .22s ease,transform .18s ease,box-shadow .22s ease}.copy.copied{background:#34d058;color:#081108;box-shadow:0 0 0 1px #34d05866,0 6px 20px #34d05830}.authbox,.sheet{background:#151518;border-color:#2b2b30}
+
+.copy{position:relative;transition:background-color .22s ease,color .22s ease,transform .18s ease,box-shadow .22s ease}
+.copy.copied{background:#34d058;color:#081108;box-shadow:0 0 0 1px #34d05866,0 6px 20px #34d05830}
