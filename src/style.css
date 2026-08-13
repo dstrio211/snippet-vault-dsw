@@ -9,11 +9,17 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
   min-width: 320px;
+  min-height: 100%;
   background: #313338;
   color: #f2f3f5;
+}
+
+body {
+  min-height: 100vh;
 }
 
 button,
@@ -27,9 +33,14 @@ button {
   cursor: pointer;
 }
 
+/* =========================
+   APP
+========================= */
+
 .app {
+  width: 100%;
   max-width: 760px;
-  margin: auto;
+  margin: 0 auto;
   padding: 28px 18px 52px;
 }
 
@@ -42,16 +53,16 @@ button {
 }
 
 h1 {
+  margin: 0;
   font-size: 30px;
   line-height: 1;
-  margin: 0;
   font-weight: 780;
   letter-spacing: -0.8px;
 }
 
 .sub {
-  color: #b5bac1;
   margin: 7px 0 0;
+  color: #b5bac1;
   font-size: 14px;
 }
 
@@ -64,49 +75,47 @@ h1 {
 .useremail {
   max-width: 180px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   color: #b5bac1;
   font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Search */
+/* =========================
+   SEARCH
+========================= */
 
 .search {
   width: 100%;
+  margin-bottom: 12px;
   padding: 14px 16px;
   border: 1px solid #1e1f22;
   border-radius: 14px;
+  outline: none;
   background: #1e1f22;
   color: #f2f3f5;
   font-size: 16px;
-  outline: none;
-  margin-bottom: 12px;
 }
 
-.search::placeholder,
-.sheet input::placeholder,
-.sheet textarea::placeholder,
-.authbox input::placeholder {
+.search::placeholder {
   color: #72767d;
 }
 
-.search:focus,
-.sheet input:focus,
-.sheet textarea:focus {
+.search:focus {
   border-color: #5865f2;
-  box-shadow: 0 0 0 3px #5865f233;
+  box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
 }
 
-/* Buttons */
+/* =========================
+   BUTTONS
+========================= */
 
 button {
-  border-radius: 12px;
   padding: 11px 15px;
+  border-radius: 12px;
   font-weight: 680;
   transition:
     transform 0.18s ease,
-    opacity 0.18s ease,
     background-color 0.22s ease,
     color 0.22s ease,
     box-shadow 0.22s ease;
@@ -116,14 +125,18 @@ button:active {
   transform: scale(0.95);
 }
 
+/* Primary */
+
 .primary {
   background: #5865f2;
-  color: #fff;
+  color: #ffffff;
 }
 
 .primary:hover {
   background: #4752c4;
 }
+
+/* Secondary */
 
 .secondary {
   background: #4e5058;
@@ -134,58 +147,76 @@ button:active {
   background: #6d6f78;
 }
 
+/* Add */
+
 #add {
+  width: 100%;
+  margin-bottom: 12px;
   background: #5865f2;
-  color: #fff;
+  color: #ffffff;
 }
 
 #add:hover {
   background: #4752c4;
 }
 
+/* Save */
+
 #save {
   background: #5865f2;
-  color: #fff;
+  color: #ffffff;
 }
 
 #save:hover {
   background: #4752c4;
 }
 
+#save.saved {
+  background: #23a559;
+  color: #ffffff;
+  box-shadow:
+    0 0 0 1px rgba(35, 165, 89, 0.4),
+    0 6px 20px rgba(35, 165, 89, 0.18);
+}
+
+/* Sign out */
+
 #signout {
   background: #ed4245;
-  color: #fff;
+  color: #ffffff;
 }
 
 #signout:hover {
   background: #c93437;
 }
 
-/* Cards */
+/* =========================
+   CARDS
+========================= */
 
 .card {
-  background: #2b2d31;
+  margin-bottom: 12px;
+  padding: 16px;
   border: 1px solid #1e1f22;
   border-radius: 17px;
-  padding: 16px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 8px #00000020;
+  background: #2b2d31;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   animation: cardIn 0.42s cubic-bezier(.22, 1, .36, 1) both;
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-1px);
   background: #303236;
-  box-shadow: 0 7px 20px #00000030;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.18);
 }
 
 .card.removing {
-  animation: cardOut 0.3s ease forwards;
   overflow: hidden;
+  animation: cardOut 0.3s ease forwards;
 }
 
 .cardtop {
@@ -200,15 +231,15 @@ button:active {
 }
 
 .text {
+  display: -webkit-box;
+  margin: 9px 0 14px;
+  overflow: hidden;
   color: #b5bac1;
   font-size: 14px;
   line-height: 1.45;
-  margin: 9px 0 14px;
   white-space: pre-wrap;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  -webkit-line-clamp: 4;
 }
 
 .actions {
@@ -220,8 +251,11 @@ button:active {
   flex: 1;
 }
 
-/* Copy button */
+/* =========================
+   COPY BUTTON
+========================= */
 
+/* Soft white default */
 .copy {
   background: #dbdee1;
   color: #1e1f22;
@@ -231,15 +265,18 @@ button:active {
   background: #c5c8cc;
 }
 
+/* Green after successful copy */
 .copy.copied {
   background: #23a559;
-  color: #fff;
+  color: #ffffff;
   box-shadow:
-    0 0 0 1px #23a55966,
-    0 6px 20px #23a55930;
+    0 0 0 1px rgba(35, 165, 89, 0.4),
+    0 6px 20px rgba(35, 165, 89, 0.18);
 }
 
-/* Delete */
+/* =========================
+   DELETE BUTTON
+========================= */
 
 .delete {
   background: #1e1f22;
@@ -248,34 +285,38 @@ button:active {
 
 .delete:hover {
   background: #ed4245;
-  color: #fff;
+  color: #ffffff;
 }
 
-/* Empty */
+/* =========================
+   EMPTY
+========================= */
 
 .empty {
-  text-align: center;
   padding: 55px 20px;
   color: #949ba4;
+  text-align: center;
 }
 
-/* Auth */
+/* =========================
+   AUTH
+========================= */
 
 .auth {
-  min-height: 100vh;
   display: grid;
-  place-items: center;
+  min-height: 100vh;
   padding: 20px;
+  place-items: center;
   background: #313338;
 }
 
 .authbox {
   width: min(420px, 100%);
-  background: #2b2d31;
+  padding: 22px;
   border: 1px solid #1e1f22;
   border-radius: 22px;
-  padding: 22px;
-  box-shadow: 0 10px 35px #00000035;
+  background: #2b2d31;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
 }
 
 .authbox h1 {
@@ -284,24 +325,28 @@ button:active {
 
 .authbox p {
   color: #b5bac1;
-  line-height: 1.45;
   font-size: 14px;
+  line-height: 1.45;
 }
 
 .authbox input {
   width: 100%;
+  margin: 7px 0;
   padding: 13px;
   border: 1px solid #1e1f22;
   border-radius: 12px;
-  margin: 7px 0;
   outline: none;
   background: #1e1f22;
   color: #f2f3f5;
 }
 
+.authbox input::placeholder {
+  color: #72767d;
+}
+
 .authbox input:focus {
   border-color: #5865f2;
-  box-shadow: 0 0 0 3px #5865f233;
+  box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
 }
 
 .auth-actions {
@@ -316,21 +361,23 @@ button:active {
 
 .auth-note {
   min-height: 20px;
-  font-size: 13px !important;
   margin-top: 10px !important;
+  font-size: 13px !important;
 }
 
-/* Modal */
+/* =========================
+   MODAL
+========================= */
 
 .modal {
   position: fixed;
   inset: 0;
-  background: #000000b3;
+  z-index: 10;
   display: none;
   align-items: flex-end;
   justify-content: center;
   padding: 12px;
-  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .modal.open {
@@ -339,10 +386,11 @@ button:active {
 
 .sheet {
   width: min(700px, 100%);
-  background: #2b2d31;
+  padding: 20px;
   border: 1px solid #1e1f22;
   border-radius: 22px;
-  padding: 20px;
+  background: #2b2d31;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   animation: sheetIn 0.42s cubic-bezier(.22, 1, .36, 1);
 }
 
@@ -353,14 +401,25 @@ button:active {
 .sheet input,
 .sheet textarea {
   width: 100%;
+  margin-bottom: 10px;
   padding: 13px;
   border: 1px solid #1e1f22;
   border-radius: 12px;
-  font: inherit;
-  margin-bottom: 10px;
   outline: none;
   background: #1e1f22;
   color: #f2f3f5;
+  font: inherit;
+}
+
+.sheet input::placeholder,
+.sheet textarea::placeholder {
+  color: #72767d;
+}
+
+.sheet input:focus,
+.sheet textarea:focus {
+  border-color: #5865f2;
+  box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
 }
 
 .sheet textarea {
@@ -377,21 +436,23 @@ button:active {
   flex: 1;
 }
 
-/* Toast */
+/* =========================
+   TOAST
+========================= */
 
 .toast {
   position: fixed;
-  z-index: 20;
   bottom: 25px;
   left: 50%;
-  transform: translateX(-50%);
-  background: #111214;
-  color: #fff;
+  z-index: 20;
   padding: 10px 16px;
   border-radius: 999px;
+  background: #111214;
+  color: #ffffff;
   font-size: 14px;
   opacity: 0;
   pointer-events: none;
+  transform: translateX(-50%);
 }
 
 .toast.show {
@@ -403,12 +464,14 @@ button:active {
 }
 
 .loading {
-  text-align: center;
   padding: 30px;
   color: #949ba4;
+  text-align: center;
 }
 
-/* Animations */
+/* =========================
+   ANIMATIONS
+========================= */
 
 @keyframes cardIn {
   0% {
@@ -429,19 +492,19 @@ button:active {
 
 @keyframes cardOut {
   0% {
-    opacity: 1;
-    transform: scale(1);
     max-height: 300px;
     margin-bottom: 12px;
+    opacity: 1;
+    transform: scale(1);
   }
 
   100% {
-    opacity: 0;
-    transform: scale(.94) translateY(-8px);
     max-height: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
+    opacity: 0;
+    transform: scale(.94) translateY(-8px);
   }
 }
 
@@ -486,7 +549,9 @@ button:active {
   }
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (min-width: 700px) {
   .modal {
@@ -517,11 +582,15 @@ button:active {
   }
 }
 
-/* Reduced motion */
+/* =========================
+   REDUCED MOTION
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
