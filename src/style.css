@@ -220,13 +220,15 @@ button:active {
   flex: 1;
 }
 
+/* Copy button */
+
 .copy {
-  background: #5865f2;
-  color: #fff;
+  background: #dbdee1;
+  color: #1e1f22;
 }
 
 .copy:hover {
-  background: #4752c4;
+  background: #c5c8cc;
 }
 
 .copy.copied {
@@ -236,6 +238,8 @@ button:active {
     0 0 0 1px #23a55966,
     0 6px 20px #23a55930;
 }
+
+/* Delete */
 
 .delete {
   background: #1e1f22;
