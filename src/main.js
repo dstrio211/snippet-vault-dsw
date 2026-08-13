@@ -149,9 +149,12 @@ function renderList() {
       btn.classList.remove("copied");
       void btn.offsetWidth;
       btn.classList.add("copied");
+      btn.textContent = "Copied!";
       clearTimeout(btn.__copyTimer);
-      btn.__copyTimer = setTimeout(() => btn.classList.remove("copied"), 1000);
-      toast("Copied ✓");
+      btn.__copyTimer = setTimeout(() => {
+        btn.classList.remove("copied");
+        btn.textContent = "Copy";
+      }, 1000);
     } catch {
       toast("Copy failed — check browser permissions");
     }
